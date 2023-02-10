@@ -7,9 +7,9 @@ class DrawerLogout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(drawer: Drawer(
+    return  Drawer(
 
-    backgroundColor: Color(0xFF31353D),
+    backgroundColor: const Color(0xFF31353D),
 
     child: ListView(
     padding: EdgeInsets.zero,
@@ -31,9 +31,7 @@ class DrawerLogout extends StatelessWidget {
     },
     ),
     ),
-    Container(
-    //decoration: BoxDecoration(border: Border(bottom: BorderSide())),
-    child: ListTile(
+    ListTile(
     shape: RoundedRectangleBorder(
     side: BorderSide(strokeAlign: StrokeAlign.outside,color:Color (0xFFE8ECEF) ),
     borderRadius: BorderRadius.circular(2),
@@ -46,11 +44,9 @@ class DrawerLogout extends StatelessWidget {
     MaterialPageRoute(builder: (context) => LoginPage()),
     );
     },
-    ),
     )
     ],
-    ),
-    ),
-    );
+    ));
+
   }
 }

@@ -1,4 +1,4 @@
-import 'package:counter_app/Counter_app/Presentation/Pages/login_page.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -8,6 +8,7 @@ import 'package:intl/intl.dart';
 
 
 import '../../utils/colors_constants.dart';
+import '../../utils/drawer_logout.dart';
 
 
 class EnterStation extends StatefulWidget {
@@ -43,50 +44,7 @@ class _EnterStationState extends State<EnterStation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-
-        backgroundColor: Color(0xFF31353D),
-
-        child: ListView(
-          padding: EdgeInsets.zero,
-
-          children: [
-            SizedBox(
-              height: 25,
-            ),
-            Container(
-              // decoration: BoxDecoration(border: Border(bottom: BorderSide())),
-              child: ListTile(
-                leading: Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.white)
-                  ),
-                    child: Icon(Icons.close_sharp,color: Colors.white,size: 25,)),
-                onTap: (){
-                  Navigator.pop(context);
-                },
-              ),
-            ),
-            Container(
-              //decoration: BoxDecoration(border: Border(bottom: BorderSide())),
-              child: ListTile(
-                shape: RoundedRectangleBorder( //<-- SEE HERE
-                  side: BorderSide(strokeAlign: StrokeAlign.outside,color:Color (0xFFE8ECEF) ),
-                  borderRadius: BorderRadius.circular(2),
-                ),
-
-                title: Text('Logout',style: TextStyle(fontWeight: FontWeight.w400,fontSize: 19,color: Colors.white),),
-                onTap: (){
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => LoginPage()),
-                  );
-                },
-              ),
-            )
-          ],
-        ),
-      ),
+      drawer: const DrawerLogout(),
 
       backgroundColor: const Color(0xFFE8ECEF),
       appBar: AppBar(
@@ -122,7 +80,7 @@ class _EnterStationState extends State<EnterStation> {
                                           .size
                                           .height *
                                           0.40,
-                                      color: Color(0xFFE8ECEF),
+                                      color: const Color(0xFFE8ECEF),
                                       child: CupertinoDatePicker(
                                           mode: CupertinoDatePickerMode.date,
                                           minimumYear:
@@ -166,7 +124,7 @@ class _EnterStationState extends State<EnterStation> {
                                         ? trainDate.toString()
                                         : displayDate.toString(),
                                     overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(fontSize: 15),
+                                    style: const TextStyle(fontSize: 15),
                                   ),
                                   Icon(
                                     CupertinoIcons.calendar,
@@ -184,9 +142,9 @@ class _EnterStationState extends State<EnterStation> {
                             decoration: InputDecoration(
                                 filled: true,
                                 fillColor: Colors.white,
-                              labelStyle: TextStyle(color: Colors.black),
+                              labelStyle: const TextStyle(color: Colors.black),
                               enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Colors.white
                                 ),
                                 borderRadius: BorderRadius.circular(11)
@@ -391,7 +349,7 @@ class _EnterStationState extends State<EnterStation> {
                         ElevatedButton(onPressed: (){
                     Fluttertoast.showToast(msg: 'Train Searched');
                   } ,style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xFF31353D),
+                        backgroundColor: const Color(0xFF31353D),
                       ),
                        child:const Text('Search',style: TextStyle(fontSize: 21),)
                   )
