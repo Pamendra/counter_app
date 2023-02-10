@@ -185,7 +185,14 @@ class _LoginPageState extends State<LoginPage> {
                             });
 
                             checkapi();
-
+                            
+                            setState(() {
+                              isLoading = true;
+                            });
+                            await Future.delayed(const Duration(seconds: 2));
+                            setState(() {
+                              isLoading = false;
+                            });
                           }
                   },
                       child:Column(
@@ -202,10 +209,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),]),
 
                   ) ,
-                  Container(
-                    padding: const EdgeInsets.only(top: 20),
-                    child:const InkWell(child: Text('Login With SSO',style: TextStyle(fontSize: 18,decoration: TextDecoration.underline,))),
-                  )
+
                 ],
               ),
             ),
