@@ -2,8 +2,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../Select_station.dart';
-import 'Station_Area_Station.dart';
+import 'Select_station.dart';
+import 'Station_Area/Station_Area_Station.dart';
 
 class Station extends StatefulWidget {
   const Station({Key? key}) : super(key: key);
@@ -22,7 +22,8 @@ class _StationState extends State<Station> {
   }
 
   static const List<Widget> _pages = <Widget>[
-    AreaStation(),EnterStation()
+    AreaStation(),
+    EnterStation()
   ];
   @override
   Widget build(BuildContext context) {
@@ -35,7 +36,7 @@ class _StationState extends State<Station> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.train),
-            label: 'Station_Area',
+            label: 'Station',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),

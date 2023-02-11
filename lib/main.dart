@@ -37,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      backgroundColor: Color(0xFFE8ECEF),
+      backgroundColor: Color(0xFFE6EBF5),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -52,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Container(
               child: Text(
-                "Welcome to TRACSIS", style: TextStyle(fontSize: 20),),
+                "Welcome to PCDS", style: TextStyle(fontSize: 20),),
             ),
             SizedBox(
               height: 100,
