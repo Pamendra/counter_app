@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import '../../Presentation/Pages/login_page.dart';
+import '../../Presentation/Pages/Login_Screen/login_page.dart';
 import 'authentication_event.dart';
 import 'authentication_state.dart';
 

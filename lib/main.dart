@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'Counter_app/Presentation/Pages/login_page.dart';
+import 'Counter_app/Presentation/Pages/Login_Screen/login_page.dart';
 import 'Counter_app/Presentation/Splash Screen/splash_screen.dart';
 
 void main() {

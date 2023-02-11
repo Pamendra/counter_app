@@ -7,8 +7,8 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
 
 
-import '../../utils/colors_constants.dart';
-import '../../utils/drawer_logout.dart';
+import '../../../utils/colors_constants.dart';
+import '../../../utils/drawer_logout.dart';
 
 
 class EnterStation extends StatefulWidget {
@@ -149,7 +149,7 @@ class _EnterStationState extends State<EnterStation> {
                                 ),
                                 borderRadius: BorderRadius.circular(11)
                               ),
-                              labelText: 'Station Name'
+                              labelText: 'Station_Area Name'
                             ),
                           ),
                         ),

@@ -2,11 +2,14 @@ import 'dart:convert';
 
 import 'package:bloc/src/bloc.dart';
 import 'package:counter_app/Counter_app/Bloc/AuthenticationBloc/authentication_state.dart';
-import 'package:counter_app/Counter_app/Presentation/Pages/Select_station.dart';
+import 'package:counter_app/Counter_app/Presentation/Pages/Station/Select_station.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
+
+import '../Station/Station_Area/Select_Station_Area.dart';
+
 
 
 class LoginPage extends StatefulWidget {
@@ -43,7 +46,7 @@ class _LoginPageState extends State<LoginPage> {
 
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const EnterStation()),
+        MaterialPageRoute(builder: (context) =>  Station()),
       );
     }
   }
@@ -160,54 +163,58 @@ class _LoginPageState extends State<LoginPage> {
                  const SizedBox(
                     height: 20,
                   ),
-                  ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor:const Color(0xFF31353D),
-                      ),
-                      onPressed: () async {
-                          if(emailController.text.isEmpty){
-                          Fluttertoast.showToast(msg: 'please enter user id');
-                          }
-                          else  if(passController.text.isEmpty){
-                            Fluttertoast.showToast(msg: 'please enter password');
-                          }
-                          // else if(emailController.text.isNotEmpty && !(emailController.text.contains('@gmail.com'))){
-                          // Fluttertoast.showToast(msg: 'please enter valid user id');
-                          // }
-                          else {
+                  Container(
+                    height: 50,
+                    child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor:const Color(0xFF31353D),
+                        ),
+                        onPressed: () async {
+                            if(emailController.text.isEmpty){
+                            Fluttertoast.showToast(msg: 'please enter user id');
+                            }
+                            else  if(passController.text.isEmpty){
+                              Fluttertoast.showToast(msg: 'please enter password');
+                            }
+                            // else if(emailController.text.isNotEmpty && !(emailController.text.contains('@gmail.com'))){
+                            // Fluttertoast.showToast(msg: 'please enter valid user id');
+                            // }
+                            else {
 
-                            setState(() {
-                              isLoading = true;
-                            });
-                            await Future.delayed(const Duration(seconds: 2));
-                            setState(() {
-                              isLoading = false;
-                            });
+                              setState(() {
+                                isLoading = true;
+                              });
+                              await Future.delayed(const Duration(seconds: 2));
+                              setState(() {
+                                isLoading = false;
+                              });
 
-                            checkapi();
-                            
-                            setState(() {
-                              isLoading = true;
-                            });
-                            await Future.delayed(const Duration(seconds: 2));
-                            setState(() {
-                              isLoading = false;
-                            });
-                          }
-                  },
-                      child:Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children:  [
-                      Center(child: isLoading ?  const SizedBox(
-                          width: 16,
-                          height: 16,
-                          child: CircularProgressIndicator(
-                            color: Colors.white,
-                            strokeWidth: 1.5,
-                          ))
-                          : const Text('Submit'),
-                      ),]),
+                              checkapi();
 
+                              setState(() {
+                                isLoading = true;
+                              });
+                              await Future.delayed(const Duration(seconds: 2));
+                              setState(() {
+                                isLoading = false;
+                              });
+                            }
+                    },
+                        child:Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children:  [
+                        Center(child: isLoading ?  const SizedBox(
+                            width: 20,
+                            height: 20,
+                            child: CircularProgressIndicator(
+                              color: Colors.white,
+                              strokeWidth: 2,
+                            ))
+                            : const Text('SignUp'),
+                        ),]),
+
+                    ),
                   ) ,
 
                 ],

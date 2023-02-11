@@ -11,6 +11,7 @@ class ColorConstants
   static var lightWhite = const Color(0x66ffffff);
   static var PrimeredColor   = const Color(0xffEF233C);
   static var appcolor = const Color(0xFF31353D);
+  static var backgroundappColor = const Color(0xFFE8ECEF);
 
 }
 
