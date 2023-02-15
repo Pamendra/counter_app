@@ -5,6 +5,7 @@ import 'package:counter_app/Counter_app/utils/drawer_logout.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class AreaStation extends StatefulWidget {
   const AreaStation({Key? key}) : super(key: key);
@@ -14,11 +15,14 @@ class AreaStation extends StatefulWidget {
 }
 
 class _AreaStationState extends State<AreaStation> {
-  bool _value = false;
-  bool _valu = false;
-  bool _val = false;
-  bool _va = false;
-  bool _v = false;
+  bool se = false;
+  bool lm = false;
+  bool ch = false;
+  bool le = false;
+  bool lo = false;
+  var station1 = 'SouthEastern - SE';var station2 = 'West Midlands - LM';var station3 = 'Chiltern - CH';var station4 ='GA - LE' ;var station5 = 'Arriva Rail London - LO' ;
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -38,8 +42,8 @@ class _AreaStationState extends State<AreaStation> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    'SouthEastern - SE',
+                   Text(
+                    station1,
                     style: TextStyle(
                         fontSize: 15.0,
                         color: Colors.black,
@@ -52,16 +56,17 @@ class _AreaStationState extends State<AreaStation> {
                       width: 60.0,
                       height: 30,
                       toggleSize: 20,
-                      value: _value,
-                      borderRadius: 30.0,
+                      value: se,
+                      borderRadius:30.0,
                       padding: 2.0,
+                      toggleBorder: Border.all(color: Colors.black),
                       activeToggleColor: Colors.blue,
                       inactiveToggleColor: Colors.grey,
                       activeColor: Colors.lightBlueAccent,
                       inactiveColor: Colors.black12,
                       onToggle: (val) {
                         setState(() {
-                          _value = val;
+                          se = val;
                         });
                       },
                     ),
@@ -77,8 +82,8 @@ class _AreaStationState extends State<AreaStation> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    'West Midlands - LM',
+                   Text(
+                    station2,
                     style: TextStyle(
                         fontSize: 15.0,
                         color: Colors.black,
@@ -91,16 +96,17 @@ class _AreaStationState extends State<AreaStation> {
                       width: 60.0,
                       height: 30,
                       toggleSize: 20,
-                      value: _valu,
+                      value: lm,
                       borderRadius: 30.0,
                       padding: 2.0,
+                      toggleBorder: Border.all(color: Colors.black),
                       activeToggleColor: Colors.blue,
                       inactiveToggleColor: Colors.grey,
                       activeColor: Colors.lightBlueAccent,
                       inactiveColor: Colors.black12,
                       onToggle: (val) {
                         setState(() {
-                          _valu = val;
+                          lm = val;
                         });
                       },
                     ),
@@ -116,8 +122,8 @@ class _AreaStationState extends State<AreaStation> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    'Chiltern - CH',
+                   Text(
+                    station3,
                     style: TextStyle(
                         fontSize: 15.0,
                         color: Colors.black,
@@ -130,16 +136,17 @@ class _AreaStationState extends State<AreaStation> {
                       width: 60.0,
                       height: 30,
                       toggleSize: 20,
-                      value: _val,
+                      value: ch,
                       borderRadius: 35.0,
                       padding: 2.0,
+                      toggleBorder: Border.all(color: Colors.black),
                       activeToggleColor: Colors.blue,
                       inactiveToggleColor: Colors.grey,
                       activeColor: Colors.lightBlueAccent,
                       inactiveColor: Colors.black12,
                       onToggle: (val) {
                         setState(() {
-                          _val = val;
+                          ch = val;
                         });
                       },
                     ),
@@ -155,8 +162,8 @@ class _AreaStationState extends State<AreaStation> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    'GA - LE',
+                   Text(
+                    station4,
                     style: TextStyle(
                         fontSize: 15.0,
                         color: Colors.black,
@@ -169,16 +176,17 @@ class _AreaStationState extends State<AreaStation> {
                       width: 60.0,
                       height: 30,
                       toggleSize: 20,
-                      value: _va,
+                      value: le,
                       borderRadius: 30.0,
                       padding: 2.0,
+                      toggleBorder: Border.all(color: Colors.black),
                       activeToggleColor: Colors.blue,
                       inactiveToggleColor: Colors.grey,
                       activeColor: Colors.lightBlueAccent,
                       inactiveColor: Colors.black12,
                       onToggle: (val) {
                         setState(() {
-                          _va = val;
+                          le = val;
                         });
                       },
                     ),
@@ -194,8 +202,8 @@ class _AreaStationState extends State<AreaStation> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    'Arriva Rail London - LO',
+                   Text(
+                   station5,
                     style: TextStyle(
                         fontSize: 15.0,
                         color: Colors.black,
@@ -208,16 +216,17 @@ class _AreaStationState extends State<AreaStation> {
                       width: 60.0,
                       height: 30,
                       toggleSize: 20,
-                      value: _v,
+                      value: lo,
                       borderRadius: 30.0,
                       padding: 2.0,
+                      toggleBorder: Border.all(color: Colors.black),
                       activeToggleColor: Colors.blue,
                       inactiveToggleColor: Colors.grey,
                       activeColor: Colors.lightBlueAccent,
                       inactiveColor: Colors.black12,
                       onToggle: (val) {
                         setState(() {
-                          _v = val;
+                          lo = val;
                         });
                       },
                     ),
@@ -226,18 +235,22 @@ class _AreaStationState extends State<AreaStation> {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 100,
           ),
-          Container(
+          SizedBox(
             height: 50,
             width: 200,
             child: ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => TrainPlatform()),
-                  );
+                if(se == true || lm==true || ch==true || le==true || lo==true){
+                Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => TrainPlatform(se)),
+                );
+                }else{
+                  Fluttertoast.showToast(msg: 'please select station');
+                }
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF31353D),
@@ -246,7 +259,7 @@ class _AreaStationState extends State<AreaStation> {
                   'Confirm',
                   style: TextStyle(fontSize: 21),
                 )),
-          )
+          ),
         ]),
       ),
     );

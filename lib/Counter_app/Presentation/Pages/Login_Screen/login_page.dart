@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:bloc/src/bloc.dart';
 import 'package:counter_app/Counter_app/Bloc/AuthenticationBloc/authentication_state.dart';
 import 'package:counter_app/Counter_app/Presentation/Pages/Station/Select_station.dart';
+import 'package:counter_app/Counter_app/utils/colors_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart';
@@ -17,7 +18,6 @@ class LoginPage extends StatefulWidget {
 
 
 
-
   State<LoginPage> createState() => _LoginPageState();
 
   then(Emitter<AuthenticationState> Function(dynamic value) param0) {}
@@ -28,6 +28,24 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController passController = TextEditingController();
   bool _passwordVisible = false;
   bool isLoading = false;
+
+  showLoaderDialog(BuildContext context){
+    AlertDialog alert=AlertDialog(
+      content:  Row(
+        children: [
+          CircularProgressIndicator(color: ColorConstants.appcolor,),
+          Container(margin: EdgeInsets.only(left: 7),child:Text("Loading..." )),
+        ],),
+    );
+    showDialog(barrierDismissible: false,
+      context:context,
+      builder:(BuildContext context){
+        return alert;
+      },
+    );
+  }
+
+
 
 
   checkapi() async {
@@ -43,6 +61,7 @@ class _LoginPageState extends State<LoginPage> {
         headers : headers);
 
     if (response.statusCode == 200) {
+      Navigator.pop(context);
 
       Navigator.push(
         context,
@@ -58,7 +77,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFE8ECEF),
+      backgroundColor: ColorConstants.backgroundappColor,
       // appBar:AppBar(
       //   actions: const [
       //     Padding(
@@ -172,6 +191,8 @@ class _LoginPageState extends State<LoginPage> {
                             backgroundColor:const Color(0xFF31353D),
                           ),
                           onPressed: () async {
+
+
                               if(emailController.text.isEmpty){
                               Fluttertoast.showToast(msg: 'please enter user id');
                               }
@@ -183,23 +204,24 @@ class _LoginPageState extends State<LoginPage> {
                               // }
                               else {
 
-                                setState(() {
-                                  isLoading = true;
-                                });
-                                await Future.delayed(const Duration(seconds: 2));
-                                setState(() {
-                                  isLoading = false;
-                                });
+                                // setState(() {
+                                //   isLoading = true;
+                                // });
+                                // await Future.delayed(const Duration(seconds: 2));
+                                // setState(() {
+                                //   isLoading = false;
+                                // });
 
+                                showLoaderDialog(context);
                                 checkapi();
 
-                                setState(() {
-                                  isLoading = true;
-                                });
-                                await Future.delayed(const Duration(seconds: 2));
-                                setState(() {
-                                  isLoading = false;
-                                });
+                              //   setState(() {
+                              //     isLoading = true;
+                              //   });
+                              //   await Future.delayed(const Duration(seconds: 2));
+                              //   setState(() {
+                              //     isLoading = false;
+                              //   });
                               }
                       },
                           child:Column(

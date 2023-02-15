@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:counter_app/Counter_app/Presentation/Pages/Station/Select_Station_Area.dart';
+import 'package:counter_app/Counter_app/Presentation/Pages/Station/ServiceForm.dart';
 import 'package:counter_app/Counter_app/utils/colors_constants.dart';
 import 'package:counter_app/Counter_app/utils/drawer_logout.dart';
 import 'package:flutter/cupertino.dart';
@@ -8,22 +11,23 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:sizer/sizer.dart';
 
 class TrainPlatform extends StatefulWidget {
-  const TrainPlatform({Key? key}) : super(key: key);
+  const TrainPlatform(bool se, {Key? key}) : super(key: key);
 
   @override
   State<TrainPlatform> createState() => _TrainPlatformState();
 }
 
 class _TrainPlatformState extends State<TrainPlatform> {
-  bool _value = false;
-  bool _valu = false;
-  bool _val = false;
-  bool _va = false;
-  bool _v = false;
+  bool p06 = false;
+  bool p09 = false;
+  bool p10 = false;
+  bool p11 = false;
+  bool p12 = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorConstants.backgroundappColor,
       bottomNavigationBar: InkWell(
           onTap: () {
             Navigator.push(
@@ -56,235 +60,251 @@ class _TrainPlatformState extends State<TrainPlatform> {
       appBar: AppBar(
         backgroundColor: ColorConstants.appcolor,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(30),
-        child: Column(children: [
-          Text(
-            'Select Platform',
-            style: TextStyle(
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
-                color: ColorConstants.appcolor),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 10, left: 20),
-            child: Container(
-              decoration:
-                  const BoxDecoration(border: Border(bottom: BorderSide())),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    'Platform 06',
-                    style: TextStyle(
-                        fontSize: 15.0,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w400),
-                  ),
-                  SizedBox(
-                    height: 80,
-                    width: 80,
-                    child: FlutterSwitch(
-                      width: 60.0,
-                      height: 30,
-                      toggleSize: 20,
-                      value: _value,
-                      borderRadius: 30.0,
-                      padding: 2.0,
-                      activeToggleColor: Colors.blue,
-                      inactiveToggleColor: Colors.grey,
-                      activeColor: Colors.lightBlueAccent,
-                      inactiveColor: Colors.black12,
-                      onToggle: (val) {
-                        setState(() {
-                          _value = val;
-                        });
-                      },
-                    ),
-                  )
-                ],
-              ),
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Padding(
+          padding: const EdgeInsets.all(30),
+          child: Column(children: [
+            Text(
+              'Select Platform',
+              style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: ColorConstants.appcolor),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20),
-            child: Container(
-              decoration:
-                  const BoxDecoration(border: Border(bottom: BorderSide())),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    'Platform 09',
-                    style: TextStyle(
-                        fontSize: 15.0,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w400),
-                  ),
-                  SizedBox(
-                    height: 80,
-                    width: 80,
-                    child: FlutterSwitch(
-                      width: 60.0,
-                      height: 30,
-                      toggleSize: 20,
-                      value: _valu,
-                      borderRadius: 30.0,
-                      padding: 2.0,
-                      activeToggleColor: Colors.blue,
-                      inactiveToggleColor: Colors.grey,
-                      activeColor: Colors.lightBlueAccent,
-                      inactiveColor: Colors.black12,
-                      onToggle: (val) {
-                        setState(() {
-                          _valu = val;
-                        });
-                      },
+            Padding(
+              padding: const EdgeInsets.only(top: 10, left: 20),
+              child: Container(
+                decoration:
+                    const BoxDecoration(border: Border(bottom: BorderSide())),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      'Platform 06',
+                      style: TextStyle(
+                          fontSize: 15.0,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w400),
                     ),
-                  )
-                ],
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20),
-            child: Container(
-              decoration:
-                  const BoxDecoration(border: Border(bottom: BorderSide())),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    'Platform 10',
-                    style: TextStyle(
-                        fontSize: 15.0,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w400),
-                  ),
-                  SizedBox(
-                    height: 80,
-                    width: 80,
-                    child: FlutterSwitch(
-                      width: 60.0,
-                      height: 30,
-                      toggleSize: 20,
-                      value: _val,
-                      borderRadius: 35.0,
-                      padding: 2.0,
-                      activeToggleColor: Colors.blue,
-                      inactiveToggleColor: Colors.grey,
-                      activeColor: Colors.lightBlueAccent,
-                      inactiveColor: Colors.black12,
-                      onToggle: (val) {
-                        setState(() {
-                          _val = val;
-                        });
-                      },
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20),
-            child: Container(
-              decoration:
-                  const BoxDecoration(border: Border(bottom: BorderSide())),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    'Platform 11',
-                    style: TextStyle(
-                        fontSize: 15.0,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w400),
-                  ),
-                  SizedBox(
-                    height: 80,
-                    width: 80,
-                    child: FlutterSwitch(
-                      width: 60.0,
-                      height: 30,
-                      toggleSize: 20,
-                      value: _va,
-                      borderRadius: 30.0,
-                      padding: 2.0,
-                      activeToggleColor: Colors.blue,
-                      inactiveToggleColor: Colors.grey,
-                      activeColor: Colors.lightBlueAccent,
-                      inactiveColor: Colors.black12,
-                      onToggle: (val) {
-                        setState(() {
-                          _va = val;
-                        });
-                      },
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20),
-            child: Container(
-              decoration:
-                  const BoxDecoration(border: Border(bottom: BorderSide())),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    'Platform 12',
-                    style: TextStyle(
-                        fontSize: 15.0,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w400),
-                  ),
-                  SizedBox(
-                    height: 80,
-                    width: 80,
-                    child: FlutterSwitch(
-                      width: 60.0,
-                      height: 30,
-                      toggleSize: 20,
-                      value: _v,
-                      borderRadius: 30.0,
-                      padding: 2.0,
-                      activeToggleColor: Colors.blue,
-                      inactiveToggleColor: Colors.grey,
-                      activeColor: Colors.lightBlueAccent,
-                      inactiveColor: Colors.black12,
-                      onToggle: (val) {
-                        setState(() {
-                          _v = val;
-                        });
-                      },
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 50,
-          ),
-          SizedBox(
-            height: 50,
-            width: 200,
-            child: ElevatedButton(
-                onPressed: () {
-                  Fluttertoast.showToast(msg: 'Train Searched');
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF31353D),
+                    SizedBox(
+                      height: 80,
+                      width: 80,
+                      child: FlutterSwitch(
+                        width: 60.0,
+                        height: 30,
+                        toggleSize: 20,
+                        value: p06,
+                        borderRadius: 30.0,
+                        padding: 2.0,
+                        toggleBorder: Border.all(color: Colors.black),
+                        activeToggleColor: Colors.blue,
+                        inactiveToggleColor: Colors.grey,
+                        activeColor: Colors.lightBlueAccent,
+                        inactiveColor: Colors.black12,
+                        onToggle: (val) {
+                          setState(() {
+                            p06 = val;
+                          });
+                        },
+                      ),
+                    )
+                  ],
                 ),
-                child: const Text(
-                  'Confirm',
-                  style: TextStyle(fontSize: 21),
-                )),
-          )
-        ]),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Container(
+                decoration:
+                    const BoxDecoration(border: Border(bottom: BorderSide())),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      'Platform 09',
+                      style: TextStyle(
+                          fontSize: 15.0,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w400),
+                    ),
+                    SizedBox(
+                      height: 80,
+                      width: 80,
+                      child: FlutterSwitch(
+                        width: 60.0,
+                        height: 30,
+                        toggleSize: 20,
+                        value: p09,
+                        borderRadius: 30.0,
+                        padding: 2.0,
+                        toggleBorder: Border.all(color: Colors.black),
+                        activeToggleColor: Colors.blue,
+                        inactiveToggleColor: Colors.grey,
+                        activeColor: Colors.lightBlueAccent,
+                        inactiveColor: Colors.black12,
+                        onToggle: (val) {
+                          setState(() {
+                            p09 = val;
+                          });
+                        },
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Container(
+                decoration:
+                    const BoxDecoration(border: Border(bottom: BorderSide())),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      'Platform 10',
+                      style: TextStyle(
+                          fontSize: 15.0,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w400),
+                    ),
+                    SizedBox(
+                      height: 80,
+                      width: 80,
+                      child: FlutterSwitch(
+                        width: 60.0,
+                        height: 30,
+                        toggleSize: 20,
+                        value: p10,
+                        borderRadius: 35.0,
+                        padding: 2.0,
+                        toggleBorder: Border.all(color: Colors.black),
+                        activeToggleColor: Colors.blue,
+                        inactiveToggleColor: Colors.grey,
+                        activeColor: Colors.lightBlueAccent,
+                        inactiveColor: Colors.black12,
+                        onToggle: (val) {
+                          setState(() {
+                            p10 = val;
+                          });
+                        },
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Container(
+                decoration:
+                    const BoxDecoration(border: Border(bottom: BorderSide())),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      'Platform 11',
+                      style: TextStyle(
+                          fontSize: 15.0,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w400),
+                    ),
+                    SizedBox(
+                      height: 80,
+                      width: 80,
+                      child: FlutterSwitch(
+                        width: 60.0,
+                        height: 30,
+                        toggleSize: 20,
+                        value: p11,
+                        borderRadius: 30.0,
+                        padding: 2.0,
+                        toggleBorder: Border.all(color: Colors.black),
+                        activeToggleColor: Colors.blue,
+                        inactiveToggleColor: Colors.grey,
+                        activeColor: Colors.lightBlueAccent,
+                        inactiveColor: Colors.black12,
+                        onToggle: (val) {
+                          setState(() {
+                            p11 = val;
+                          });
+                        },
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Container(
+                decoration:
+                    const BoxDecoration(border: Border(bottom: BorderSide())),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      'Platform 12',
+                      style: TextStyle(
+                          fontSize: 15.0,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w400),
+                    ),
+                    SizedBox(
+                      height: 80,
+                      width: 80,
+                      child: FlutterSwitch(
+                        width: 60.0,
+                        height: 30,
+                        toggleSize: 20,
+                        value: p12,
+                        borderRadius: 30.0,
+                        padding: 2.0,
+                        toggleBorder: Border.all(color: Colors.black),
+                        activeToggleColor: Colors.blue,
+                        inactiveToggleColor: Colors.grey,
+                        activeColor: Colors.lightBlueAccent,
+                        inactiveColor: Colors.black12,
+                        onToggle: (val) {
+                          setState(() {
+                            p12 = val;
+                          });
+                        },
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 50,
+            ),
+            SizedBox(
+              height: 50,
+              width: 200,
+              child: ElevatedButton(
+                  onPressed: () {
+                    if(p06==true || p09==true || p10==true || p11==true || p12==true){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ServiceForm()),
+                      );
+                    }else{
+                      Fluttertoast.showToast(msg: 'please select platform');
+                    }
+
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFF31353D),
+                  ),
+                  child: const Text(
+                    'Confirm',
+                    style: TextStyle(fontSize: 21),
+                  )),
+            )
+          ]),
+        ),
       ),
     );
   }
