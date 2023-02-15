@@ -32,8 +32,10 @@ class _LoginPageState extends State<LoginPage> {
   showLoaderDialog(BuildContext context){
     AlertDialog alert=AlertDialog(
       content:  Row(
+       // mainAxisAlignment: MainAxisAlignment.center,
+
         children: [
-          CircularProgressIndicator(color: ColorConstants.appcolor,),
+          Container(child: CircularProgressIndicator(color: ColorConstants.appcolor,)),
           Container(margin: EdgeInsets.only(left: 7),child:Text("Loading..." )),
         ],),
     );
