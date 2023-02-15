@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:counter_app/Counter_app/utils/drawer_logout.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 
@@ -71,12 +72,12 @@ var _head;
               Padding(
                 padding: const EdgeInsets.only(left: 20,right: 20),
                 child: DropdownButtonFormField(
-                  icon: Icon(Icons.location_on),
+                  icon: const Icon(Icons.location_on),
                   decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
+                      focusedBorder: const OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.black)
                       ),
-                      labelStyle: TextStyle(color: Colors.black,fontWeight: FontWeight.w500),
+                      labelStyle: const TextStyle(color: Colors.black,fontWeight: FontWeight.w500),
                     filled: true,
                       fillColor: Colors.white,
                       labelText: 'Destination',
@@ -98,18 +99,18 @@ var _head;
                   value: _destinatiion,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 20,right: 20),
                 child: DropdownButtonFormField(
-                  icon: Icon(Icons.timelapse_outlined),
+                  icon: const Icon(Icons.timelapse_outlined),
                   decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
+                      focusedBorder: const OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.black)
                       ),
-                      labelStyle: TextStyle(color: Colors.black,fontWeight: FontWeight.w500),
+                      labelStyle: const TextStyle(color: Colors.black,fontWeight: FontWeight.w500),
                       filled: true,
                       fillColor: Colors.white,
                     labelText: 'Departure Time',
@@ -134,18 +135,18 @@ var _head;
                 ),
               ),
 
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 20,right: 20),
                 child: DropdownButtonFormField(
-                  icon: Icon(Icons.train),
+                  icon: const Icon(Icons.train),
                   decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
+                      focusedBorder: const OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.black)
                       ),
-                      labelStyle: TextStyle(color: Colors.black,fontWeight: FontWeight.w500),
+                      labelStyle: const TextStyle(color: Colors.black,fontWeight: FontWeight.w500),
                       filled: true,
                       fillColor: Colors.white,
                     labelText: 'Select Platform',
@@ -167,16 +168,16 @@ var _head;
                   value: _platform,
                 ),
               ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
 
               Padding(
                 padding: const EdgeInsets.only(left: 20,right: 20),
                 child: DropdownButtonFormField(
                   decoration: InputDecoration(
-                    focusedBorder: OutlineInputBorder(
+                    focusedBorder: const OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.black)
                     ),
-                      labelStyle: TextStyle(color: Colors.black,fontWeight: FontWeight.w500),
+                      labelStyle: const TextStyle(color: Colors.black,fontWeight: FontWeight.w500),
                       filled: true,
                       fillColor: Colors.white,
                       labelText: 'Head Code',
@@ -198,26 +199,39 @@ var _head;
                   value: _head,
                 ),
               ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
               
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
+                  SizedBox(
                     width: 230,
                       height: 50,
                       child: ElevatedButton(onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => Boarding()));
+
+                        if(_destinatiion == null || _departure == null || _platform == null || _head == null){
+                          Fluttertoast.showToast(msg: 'please select service');
+                        }else {
+                          Navigator.push(context, MaterialPageRoute(
+                              builder: (context) => const Boarding()));
+                        }
                       },style: ElevatedButton.styleFrom(
                         backgroundColor: ColorConstants.appcolor
                       )
-                          , child: Text('Apply',style: TextStyle(fontSize: 19,fontWeight: FontWeight.w500),))),
-                  SizedBox(width: 10,),
-                  Container(width: 120,height: 50,
-                      child: ElevatedButton(onPressed: (){},style: ElevatedButton.styleFrom(
+                          , child: const Text('Apply',style: TextStyle(fontSize: 19,fontWeight: FontWeight.w500),))),
+                  const SizedBox(width: 10,),
+                  SizedBox(width: 120,height: 50,
+                      child: ElevatedButton(onPressed: (){
+                        setState((){
+                          _destinatiion = null;
+                          _departure =  null;
+                          _platform = null;
+                          _head = null;
+                        });
+                      },style: ElevatedButton.styleFrom(
                         backgroundColor: ColorConstants.appcolor
                       )
-                          , child: Text('Reset',style: TextStyle(fontWeight: FontWeight.w500,fontSize: 16),)))
+                          , child: const Text('Reset',style: TextStyle(fontWeight: FontWeight.w500,fontSize: 16),)))
                 ],
               ),
             ],

@@ -33,7 +33,6 @@ class _LoginPageState extends State<LoginPage> {
     AlertDialog alert=AlertDialog(
       content:  Row(
        // mainAxisAlignment: MainAxisAlignment.center,
-
         children: [
           Container(child: CircularProgressIndicator(color: ColorConstants.appcolor,)),
           Container(margin: EdgeInsets.only(left: 7),child:Text("Loading..." )),
